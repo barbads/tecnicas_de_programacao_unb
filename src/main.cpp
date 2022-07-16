@@ -1,5 +1,10 @@
-/*
-@brief Main class
+/**
+* @file         main.cpp
+* @brief        Programa roda os testes unitarios para cada dominio. Cada teste foi feito em 'testes.cpp'
+* @author       Matheus Barbosa de Miranda
+* @include      stdexcept
+* @include      iostream
+* @include      string
 */
 
 #include <stdexcept>

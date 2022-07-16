@@ -26,15 +26,19 @@ void TUNome::testarCenarioFalha() {
         error = true;
     } catch (invalid_argument &excecao) {
         if (nome->getNome() != NOME_INVALIDO) {
-            error = true;
+            error = false;
         }
     }
 }
 
 bool TUNome::run() {
     setup();
+    cout << "TESTE SETUP --- ERROR = " << boolalpha << error << endl;
     testarCenarioSucesso();
+    cout << "TESTE CENARIO SUCESSO --- ERROR = " << boolalpha <<error << endl;
     testarCenarioFalha();
+    cout << "TESTE CENARIO FALHA --- ERROR = " << boolalpha << error << endl;
     tearDown();
+    cout << "TESTE TEARDOWN --- ERROR = " << boolalpha << error << endl;
     return error;
 }
