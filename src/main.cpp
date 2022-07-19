@@ -18,11 +18,18 @@ using namespace std;
 
 int main() {
     TUNome testeNome;
+    TUCodigo testeCodigo;
 
     if (testeNome.run()) {
-        cout << "Teste Unitario do dominio NOME NAO PASSOU. FALHA." << endl;
+        cout << "Teste Unitario do dominio NOME NAO PASSOU. FALHA." << endl << endl;
     } else {
-        cout << "Teste Unitario do dominio NOME passou." << endl;
+        cout << "Teste Unitario do dominio NOME passou." << endl << endl;
+    }
+
+    if (testeCodigo.run()) {
+        cout << "Teste Unitario do dominio CODIGO NAO PASSOU. FALHA." << endl << endl;
+    } else {
+        cout << "Teste Unitario do dominio CODIGO passou." << endl << endl;
     }
 
 

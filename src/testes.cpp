@@ -31,14 +31,57 @@ void TUNome::testarCenarioFalha() {
     }
 }
 
+void TUCodigo::setup() {
+    codigo = new Codigo();
+    error = false;
+}
+
+void TUCodigo::tearDown(){
+    delete codigo;
+}
+
+void TUCodigo::testarCenarioSucesso() {
+    try {
+        codigo->setCodigo(CODIGO_VALIDO);
+        if (codigo->getCodigo() != CODIGO_VALIDO) {
+           error = true;
+        }
+    } catch(invalid_argument &excecao) {
+        error = true;
+    } 
+}
+
+void TUCodigo::testarCenarioFalha() {
+    try {
+        codigo->setCodigo(CODIGO_INVALIDO);
+        error = true;
+    } catch (invalid_argument &excecao) {
+        if (codigo->getCodigo() != CODIGO_INVALIDO) {
+            error = false;
+        }
+    }
+}
+
 bool TUNome::run() {
     setup();
-    cout << "TESTE SETUP --- ERROR = " << boolalpha << error << endl;
+    cout << "TESTE SETUP NOME --- ERROR = " << boolalpha << error << endl;
     testarCenarioSucesso();
-    cout << "TESTE CENARIO SUCESSO --- ERROR = " << boolalpha <<error << endl;
+    cout << "TESTE CENARIO SUCESSO NOME --- ERROR = " << boolalpha <<error << endl;
     testarCenarioFalha();
-    cout << "TESTE CENARIO FALHA --- ERROR = " << boolalpha << error << endl;
+    cout << "TESTE CENARIO FALHA NOME --- ERROR = " << boolalpha << error << endl;
     tearDown();
-    cout << "TESTE TEARDOWN --- ERROR = " << boolalpha << error << endl;
+    cout << "TESTE TEARDOWN NOME --- ERROR = " << boolalpha << error << endl;
+    return error;
+}
+
+bool TUCodigo::run() {
+    setup();
+    cout << "TESTE SETUP CODIGO --- ERROR = " << boolalpha << error << endl;
+    testarCenarioSucesso();
+    cout << "TESTE CENARIO SUCESSO CODIGO --- ERROR = " << boolalpha <<error << endl;
+    testarCenarioFalha();
+    cout << "TESTE CENARIO FALHA CODIGO --- ERROR = " << boolalpha << error << endl;
+    tearDown();
+    cout << "TESTE TEARDOWN -CODIGO -- ERROR = " << boolalpha << error << endl;
     return error;
 }

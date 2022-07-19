@@ -24,6 +24,28 @@ public:
     string getNome() const;
 };
 
+/**
+* @class   Codigo
+* @brief   Dominio de Codigo.
+* @detail  O codigo deve ser no formato DDDDDDDDDDX, sendo X o digito verificador de acordo com o 
+           algoritmo de Luhn
+*/
+
+
+class Codigo {
+private:
+    static const int SIZE = 11;
+    string codigo;
+    void validar(string);
+public:
+    void setCodigo(string);
+    string getCodigo();
+};
+
+inline string Codigo::getCodigo() {
+    return codigo;
+}
+
 inline string Nome::getNome() const {
     return nome;
 }
